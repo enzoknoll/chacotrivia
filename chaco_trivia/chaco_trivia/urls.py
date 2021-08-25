@@ -24,13 +24,10 @@ from login import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.login),
-    path('lobby/', views.lobby),
-    path('lobby/quiz/', views.quiz),
-    path('admin/', admin.site.urls),
-    path('home/', home,name='home'),
+    path('lobby/', lobby,name='lobby'),
+    path('lobby/quiz/', home,name='home'),
     path('addQuestion/', addQuestion,name='addQuestion'),
-    path('login/', loginPage,name='login'),
+    path('', loginPage,name='login'),
     path('logout/', logoutPage,name='logout'),
     path('register/', registerPage,name='register'),
 ]

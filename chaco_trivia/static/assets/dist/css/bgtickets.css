@@ -6,3 +6,8 @@ body{
     background-position: center;
     font-family: sans-serif;
 }
+
+#displaytimer{
+    color:rgb(255, 255, 255);
+    font-size: 30px;
+}

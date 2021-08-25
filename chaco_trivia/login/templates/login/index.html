@@ -43,10 +43,20 @@
         <form>
           <img class="mb-4" src="{% static '/assets/brand/oNEZGs44.jpg' %}" alt="" width="154" height="154">
           <h1 class="h3 mb-3 fw-normal">Juego Chaco-Trivia</h1>
-          <div class="form-floating">
-            <input class="form-control" id="username" placeholder="Alias">
-            <label for="floatingInput">Introduce tu Alias</label>
-          </div>              
+            <div class="container jumbotron">
+              <form method="POST" action="">
+            {% csrf_token %}
+                <div class="form-floating">
+                  <input class="form-control" type="text" name="username" placeholder="Alias">
+                  <label for="floatingInput">Nombre de usuario</label>
+                </div>
+                <div class="form-floating">
+                  <input type="password" class="form-control" type="password" name="password" placeholder="Contraseña">
+                  <label for="floatingPassword">Contraseña</label>
+                </div> 
+                <input class="btn btn-success" type="submit" value="Login">
+              </form>
+            </div>
           <head>
             <script type="text/javascript">                           
               function lobby(){
@@ -56,7 +66,8 @@
             </script>
             </head>
             <body>
-              <button class="w-100 btn btn-lg btn-danger" type="button" onclick="javascript:lobby()">EMPEZAR</button>
+              <button class="w-100 btn btn-lg btn-danger btn-success" type="button submit" value="Login" onclick="javascript:lobby()">EMPEZAR</button>
+              <p>Do not have an account<a href='{% url 'register' %}'>Register</a></p>
             </body>
 
         </form>
