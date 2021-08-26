@@ -58,7 +58,7 @@ def addQuestion(request):
  
 def registerPage(request):
     if request.user.is_authenticated:
-        return redirect('home') 
+        return redirect('login') 
     else: 
         form = createuserform()
         if request.method=='POST':
@@ -83,7 +83,7 @@ def loginPage(request):
             login(request,user)
             return redirect('/lobby')
        context={}
-       return render(request,'Quiz/login.html',context)
+       return render(request,'quiz/login.html',context)
  
 def logoutPage(request):
     logout(request)

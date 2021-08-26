@@ -19,8 +19,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls.static import static
 from login.views import *
-from login import views
-#from lobby import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),

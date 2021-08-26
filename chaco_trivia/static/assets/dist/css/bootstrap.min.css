@@ -47,3 +47,7 @@
 #boxshadow{
     box-shadow: 2px 2px 2px black;
 }
+#displaytimer {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+}
