@@ -3,10 +3,21 @@ from django.contrib.auth import login,logout,authenticate
 from .forms import *
 from .models import *
 from django.http import HttpResponse
+from os import getcwd
+import pyodbc
+import random
 
+# conn = pyodbc.connect("DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:/Users/Droshi/Desktop/Django final/venvtriviachaco/chaco_trivia/login/templates/preguntassql/preguntas.accdb;")
 
-def lobby(request):
-	return render(request, "lobby/index.html")
+# cursor = conn.cursor()
+# cursor.execute('SELECT * FROM Preguntas')
+
+# numr=random.randint(1,2)   
+
+# for pregunta in cursor.execute('SELECT top 1 preguntas, respuesta1, respuesta2, respuesta3, respuesta4 FROM Preguntas WHERE rnd(id)'):
+#     print(pregunta)
+
+# listapr=pregunta
 
 def home(request):
     if request.method == 'POST':
@@ -36,12 +47,34 @@ def home(request):
             'total':total
         }
         return render(request,'quiz/result.html',context)
+        
     else:
+        # pregunta=listapr[0]
+        # respuesta1=listapr[1]
+        # respuesta2=listapr[2]
+        # respuesta3=listapr[3]
+        # respuesta4=listapr[4]
         questions=QuesModel.objects.all()
         context = {
-            'questions':questions
+            'questions':questions,
+            # 'pregunta' : pregunta,
+            # 'respuesta1': respuesta1,
+            # 'respuesta2': respuesta2,
+            # 'respuesta3': respuesta3,
+            # 'respuesta4': respuesta4
         }
         return render(request,'quiz/home.html',context)
+
+
+
+# cursor.close()
+# conn.close()
+
+
+def lobby(request):
+	return render(request, 'lobby/index.html')
+
+
  
 def addQuestion(request):    
     if request.user.is_staff:
