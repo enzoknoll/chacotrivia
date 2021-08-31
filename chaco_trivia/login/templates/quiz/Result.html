@@ -5,21 +5,27 @@
 <head>
     <!-- Bootstrap core CSS -->
 <link href="{% static '/assets/dist/css/bgtickets.css' %}" rel="stylesheet">
+<link href="{% static '/assets/dist/css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
 
 <div class="container ">
     <div class="card-columns" style="padding: 10px; margin: 20px;">
-        <div class="card" align-item="centre" style="background-color: rgba(191, 226, 194, 0.534);">
+        <div class="card" align-item="centre" style="background-color: rgba(59, 70, 59, 0.65);">
             <img class="card-img-top" src="http://kmit.in/emagazine/wp-content/uploads/2018/02/karnataka-results.jpg"
                 alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Puntaje: {{score}}</h5>
-                <p class="card-text">Percentaje: {{percent}}%</p>
-                <p class="card-text">Tiempo: {{time}} seconds</p>
-                <p class="card-text">Correct answers: {{correct}}</p>
-                <p class="card-text">Incorrect answers: {{wrong}}</p>
-                <p class="card-text">Total questions: {{total}}</p>
-                <h5>All the best for next quiz!</h5>
+                <p><font id="textoshadow" face="Copperplate Gothic Light" size="3" color="#ededed">Percentaje: {{percent}}%</font></p>
+                <p><font id="textoshadow" face="Copperplate Gothic Light" size="3" color="#ededed">Tiempo: {{time}} segundos</font></p>
+                <p><font id="textoshadow" face="Copperplate Gothic Light" size="3" color="#ededed">Respuestas correctas: {{correct}}</font></p>
+                <p><font id="textoshadow" face="Copperplate Gothic Light" size="3" color="#ededed">Respuestas incorrectas: {{wrong}}</font></p>
+                <p><font id="textoshadow" face="Copperplate Gothic Light" size="3" color="#ededed">Preguntas totales: {{total}}</font></p>
+                <script type="text/javascript">
+
+                    function lobby() {
+                      window.location = "http://127.0.0.1:8000/lobby";
+                    }
+                </script>
+                <a href="#" id="boxshadow" class="btn btn-danger my-2" onclick="javascript:lobby()">Volver al lobby</a>     
             </div>
         </div>
     </div>
