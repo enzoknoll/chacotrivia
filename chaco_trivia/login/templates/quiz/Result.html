@@ -1,20 +1,24 @@
 {% extends 'quiz/dependencies.html' %}
 
 {% block content %}
+{% load static %}
+<head>
+    <!-- Bootstrap core CSS -->
+<link href="{% static '/assets/dist/css/bgtickets.css' %}" rel="stylesheet">
+</head>
 
 <div class="container ">
     <div class="card-columns" style="padding: 10px; margin: 20px;">
-        <div class="card" align="centre " style="width: 32rem; border:5px black solid">
+        <div class="card" align-item="centre" style="background-color: rgba(191, 226, 194, 0.534);">
             <img class="card-img-top" src="http://kmit.in/emagazine/wp-content/uploads/2018/02/karnataka-results.jpg"
                 alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Score: {{score}}</h5>
-                <p class="card-text">Percentage: {{percent}}%</p>
-                <p class="card-text">Time Taken: {{time}} seconds</p>
+                <h5 class="card-title">Puntaje: {{score}}</h5>
+                <p class="card-text">Percentaje: {{percent}}%</p>
+                <p class="card-text">Tiempo: {{time}} seconds</p>
                 <p class="card-text">Correct answers: {{correct}}</p>
                 <p class="card-text">Incorrect answers: {{wrong}}</p>
                 <p class="card-text">Total questions: {{total}}</p>
-                <p class="card-text">{{pregunta}} {{respuesta1}}</p>
                 <h5>All the best for next quiz!</h5>
             </div>
         </div>

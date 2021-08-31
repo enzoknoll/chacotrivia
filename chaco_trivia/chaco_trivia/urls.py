@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('lobby/', lobby,name='lobby'),
     path('lobby/quiz/', home,name='home'),
+    path('lobby/geografia/', homegeografia,name='homegeografia'),
+    path('lobby/historia/', homehistoria,name='homehistoria'),
     path('addQuestion/', addQuestion,name='addQuestion'),
     path('', loginPage,name='login'),
     path('logout/', logoutPage,name='logout'),

@@ -7,15 +7,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+    
     <title>Quiz Chaco Trivia</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,6 +84,7 @@
         <div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div>
 
         <form method='post' action=''>
+            {% csrf_token %}
             <div class="container-fluid">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -103,20 +96,33 @@
                             <div class="quiz" id="quiz" data-toggle="buttons"> <label
                                     class="element-animation1 btn btn-lg btn-danger btn-block"><span
                                         class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                                    <input type="radio" name="q_answer" value="1">{{respuesta1}}</label> <label
+                                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios4"
+                                        value="option1">{{respuesta1}}</label> <label
                                     class="element-animation2 btn btn-lg btn-danger btn-block"><span
                                         class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                                    <input type="radio" name="q_answer" value="2">{{respuesta2}}</label> <label
+                                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios4"
+                                        value="option2">{{respuesta2}}</label> <label
                                     class="element-animation3 btn btn-lg btn-danger btn-block"><span
                                         class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                                    <input type="radio" name="q_answer" value="3">{{respuesta3}}</label> <label
+                                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios4"
+                                        value="option3">{{respuesta3}}</label> <label
                                     class="element-animation4 btn btn-lg btn-danger btn-block"><span
                                         class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                                    <input type="radio" name="q_answer" value="4">{{respuesta4}}</label> </div>
+                                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios4"
+                                        value="option4">{{respuesta4}}</label> </div>
                         </div>
                     </div>
                 </div>
             </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+crossorigin="anonymous"></script>
 </body>
 <input id='timer' type='hidden' name="timer" value="">
 <br>
@@ -124,7 +130,6 @@
 </form>
 {% block script %}
 <script>
-
     console.log('hello world')
     const timer = document.getElementById('displaytimer')
     console.log(timer.textContent)
