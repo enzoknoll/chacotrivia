@@ -8,5 +8,11 @@ class categorias(admin.ModelAdmin):
         'nombre'
     )
 
-admin.site.register(QuesModel)
+class preguntas(admin.ModelAdmin):
+    list_display=(
+        'id',
+        'question',
+    )
+
+admin.site.register(QuesModel, preguntas)
 admin.site.register(category, categorias)
