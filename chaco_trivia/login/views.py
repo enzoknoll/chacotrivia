@@ -140,6 +140,123 @@ def homehistoria(request):
         }
         return render(request, 'quiz/Home.html', context)
 
+def homedeportes(request):
+    if request.method == 'POST':
+        print(request.POST)
+        questions = QuesModel.objects.filter(
+            categoria = 4
+        )
+        score = 0
+        wrong = 0
+        correct = 0
+        total = 0
+        for q in questions:
+            total += 1
+            print(request.POST.get(q.question))
+            print(q.ans)
+            print()
+            if q.ans == request.POST.get(q.question):
+                score += 10
+                correct += 1
+            else:
+                wrong += 1
+        percent = score/(total*10) * 100
+        context = {
+            'score': score,
+            'time': request.POST.get('timer'),
+            'correct': correct,
+            'wrong': wrong,
+            'percent': percent,
+            'total': total
+        }
+        return render(request, 'quiz/result.html', context)
+    else:
+        questions = QuesModel.objects.filter(
+            categoria = 4
+        )
+        context = {
+            'questions': questions,
+        }
+        return render(request, 'quiz/Home.html', context)
+
+def homegastronomia(request):
+    if request.method == 'POST':
+        print(request.POST)
+        questions = QuesModel.objects.filter(
+            categoria = 5
+        )
+        score = 0
+        wrong = 0
+        correct = 0
+        total = 0
+        for q in questions:
+            total += 1
+            print(request.POST.get(q.question))
+            print(q.ans)
+            print()
+            if q.ans == request.POST.get(q.question):
+                score += 10
+                correct += 1
+            else:
+                wrong += 1
+        percent = score/(total*10) * 100
+        context = {
+            'score': score,
+            'time': request.POST.get('timer'),
+            'correct': correct,
+            'wrong': wrong,
+            'percent': percent,
+            'total': total
+        }
+        return render(request, 'quiz/result.html', context)
+    else:
+        questions = QuesModel.objects.filter(
+            categoria = 5
+        )
+        context = {
+            'questions': questions,
+        }
+        return render(request, 'quiz/Home.html', context)
+
+def homecienciasnaturales(request):
+    if request.method == 'POST':
+        print(request.POST)
+        questions = QuesModel.objects.filter(
+            categoria = 6
+        )
+        score = 0
+        wrong = 0
+        correct = 0
+        total = 0
+        for q in questions:
+            total += 1
+            print(request.POST.get(q.question))
+            print(q.ans)
+            print()
+            if q.ans == request.POST.get(q.question):
+                score += 10
+                correct += 1
+            else:
+                wrong += 1
+        percent = score/(total*10) * 100
+        context = {
+            'score': score,
+            'time': request.POST.get('timer'),
+            'correct': correct,
+            'wrong': wrong,
+            'percent': percent,
+            'total': total
+        }
+        return render(request, 'quiz/result.html', context)
+    else:
+        questions = QuesModel.objects.filter(
+            categoria = 6
+        )
+        context = {
+            'questions': questions,
+        }
+        return render(request, 'quiz/Home.html', context)
+
 def homegeografia(request):
     if request.method == 'POST':
         print(request.POST)
@@ -173,6 +290,45 @@ def homegeografia(request):
     else:
         questions = QuesModel.objects.filter(
             categoria = 7
+        )
+        context = {
+            'questions': questions,
+        }
+        return render(request, 'quiz/Home.html', context)
+
+def homepolitica(request):
+    if request.method == 'POST':
+        print(request.POST)
+        questions = QuesModel.objects.filter(
+            categoria = 8
+        )
+        score = 0
+        wrong = 0
+        correct = 0
+        total = 0
+        for q in questions:
+            total += 1
+            print(request.POST.get(q.question))
+            print(q.ans)
+            print()
+            if q.ans == request.POST.get(q.question):
+                score += 10
+                correct += 1
+            else:
+                wrong += 1
+        percent = score/(total*10) * 100
+        context = {
+            'score': score,
+            'time': request.POST.get('timer'),
+            'correct': correct,
+            'wrong': wrong,
+            'percent': percent,
+            'total': total
+        }
+        return render(request, 'quiz/result.html', context)
+    else:
+        questions = QuesModel.objects.filter(
+            categoria = 8
         )
         context = {
             'questions': questions,
