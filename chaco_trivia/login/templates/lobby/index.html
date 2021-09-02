@@ -64,20 +64,20 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="{% url 'lobby' %}">Volver al Inicio</a>
                 </li>
-                </li>
                 <li class="nav-item active">
 
-                  {% if request.user.is_staff %}
+                {% if request.user.is_staff %}
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'addQuestion' %}">Add Question</a>
+                  <a class="nav-link" href="{% url 'addQuestion' %}">Añadir pregunta</a>
                 </li>
                 {% endif %}
-
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}">Login</a>
-                </li>
+                {% if request.user.is_authenticated %}
+                {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                  </li>
+                {% endif %}
               </ul>
             </div>
 
@@ -138,7 +138,18 @@
               function historia() {
                 window.location = "historia";
               }
-              
+              function deportes() {
+                window.location = "deportes";
+              }
+              function gastronomia() {
+                window.location = "gastronomia";
+              }
+              function cienciasnaturales() {
+                window.location = "cienciasnaturales";
+              }
+              function politica() {
+                window.location = "politica";
+              }
             </script>
           </head>
           <a href="#" id="boxshadow" class="btn btn-danger my-2" onclick="javascript:quiz()">Comenzar juego</a>
@@ -191,7 +202,7 @@
             </div>
           </div>
         </a>
-        <a class="btn" onclick="javascript:quiz()">
+        <a class="btn" onclick="javascript:politica()">
           <div class="col">
             <div class="element-animation3 card shadow-sm">
               <svg id="fondopolitica" class="bd-placeholder-img card-img-top" width="100%" height="225"
@@ -210,7 +221,7 @@
             </div>
           </div>
         </a>
-        <a class="btn" onclick="javascript:quiz()">
+        <a class="btn" onclick="javascript:gastronomia()">
           <div class="col">
             <div class="element-animation4 card shadow-sm">
               <svg id="fondogastronomia" class="bd-placeholder-img card-img-top flex-center" width="100%" height="225"
@@ -230,7 +241,7 @@
             </div>
           </div>
         </a>
-        <a class="btn" onclick="javascript:quiz()">
+        <a class="btn" onclick="javascript:cienciasnaturales()">
           <div class="col">
             <div class="element-animation5 card shadow-sm">
               <svg id="fondocienciasnaturales" class="bd-placeholder-img card-img-top" width="100%" height="225"
@@ -250,7 +261,7 @@
             </div>
           </div>
         </a>
-        <a class="btn" onclick="javascript:quiz()">
+        <a class="btn" onclick="javascript:deportes()">
           <div class="col">
             <div class="element-animation6 card shadow-sm">
               <svg id="fondodeportes" class="bd-placeholder-img card-img-top" width="100%" height="225"

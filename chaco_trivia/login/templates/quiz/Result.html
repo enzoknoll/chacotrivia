@@ -19,13 +19,13 @@
                 <p><font id="textoshadow" face="Copperplate Gothic Light" size="3" color="#ededed">Respuestas correctas: {{correct}}</font></p>
                 <p><font id="textoshadow" face="Copperplate Gothic Light" size="3" color="#ededed">Respuestas incorrectas: {{wrong}}</font></p>
                 <p><font id="textoshadow" face="Copperplate Gothic Light" size="3" color="#ededed">Preguntas totales: {{total}}</font></p>
-                <script type="text/javascript">
+                <!-- <script type="text/javascript">
 
                     function lobby() {
-                      window.location = "http://127.0.0.1:8000/lobby";
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
                     }
-                </script>
-                <a href="#" id="boxshadow" class="btn btn-danger my-2" onclick="javascript:lobby()">Volver al lobby</a>     
+                </script> -->
+                <a href="{% url 'lobby' %}" id="boxshadow" class="btn btn-danger my-2">Volver al lobby</a>     
             </div>
         </div>
     </div>
